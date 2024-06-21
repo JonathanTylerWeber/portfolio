@@ -6,9 +6,9 @@ import { ScrollTrigger } from 'gsap/all';
 import './Marquee.css'
 
 export default function Marquee() {
-
   const firstText = useRef(null);
   const secondText = useRef(null);
+  const thirdText = useRef(null); // New reference for the third text
   const slider = useRef(null);
   let xPercent = 0;
   let direction = -1.25;
@@ -24,31 +24,30 @@ export default function Marquee() {
         onUpdate: e => direction = e.direction * -1
       },
       x: "-500px",
-    })
+    });
     requestAnimationFrame(animate);
-  }, [])
+  }, []);
 
   const animate = () => {
     if (xPercent < -100) {
       xPercent = 0;
-    }
-    else if (xPercent > 0) {
+    } else if (xPercent > 0) {
       xPercent = -100;
     }
-    gsap.set(firstText.current, { xPercent: xPercent })
-    gsap.set(secondText.current, { xPercent: xPercent })
+    gsap.set(firstText.current, { xPercent: xPercent });
+    gsap.set(secondText.current, { xPercent: xPercent });
+    gsap.set(thirdText.current, { xPercent: xPercent }); // Set position for the third text
     requestAnimationFrame(animate);
     xPercent += 0.1 * direction;
-  }
+  };
 
   return (
-    <>
-      <div className='sliderContainer'>
-        <div ref={slider} className='slider'>
-          <p ref={firstText}>Jonathan Weber - </p>
-          <p ref={secondText}>Jonathan Weber - </p>
-        </div>
+    <div className='sliderContainer'>
+      <div ref={slider} className='slider'>
+        <p ref={firstText}>Jonathan Weber - </p>
+        <p ref={secondText}>Jonathan Weber - </p>
+        <p ref={thirdText}>Jonathan Weber - </p> {/* New third text element */}
       </div>
-    </>
-  )
+    </div>
+  );
 }

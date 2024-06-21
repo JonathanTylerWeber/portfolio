@@ -1,25 +1,36 @@
 .sliderContainer {
   position: absolute;
   top: calc(100vh - 400px);
+  left: 0;
+  right: 0;
   overflow: hidden;
+  width: 100vw;
+  /* Ensures it spans the full width */
 }
 
 .slider {
-  position: relative;
+  display: flex;
+  /* Ensure inline elements stay side by side */
   white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 .slider p {
-  position: relative;
-  margin: 0px;
+  margin: 0;
   color: white;
   font-size: 230px;
   font-weight: 500;
   padding-right: 50px;
+  /* Adjust spacing between texts */
 }
 
 .slider p:nth-of-type(2) {
-  position: absolute;
   left: 100%;
+  top: 0;
+}
+
+.slider p:nth-of-type(3) {
+  left: 200%;
+  /* Positioning the third text */
   top: 0;
 }

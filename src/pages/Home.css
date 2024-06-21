@@ -9,10 +9,39 @@ body {
 }
 
 .content {
-  margin-top: 5em;
-  margin-bottom: 5em;
+  margin-top: 12em;
+  margin-bottom: 10em;
 }
 
 p {
   color: white;
+}
+
+.blurb {
+  font-size: 1.75em;
+}
+
+.about-link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-link {
+  color: #dca31f;
+  font-size: 3em;
+  padding-top: 1em;
+  position: relative;
+  display: inline-block;
+}
+
+.about-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.recent {
+  font-size: 5em;
+  color: #dca31f;
+  margin-top: 2em;
+  text-align: center;
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import "./Home.css";
-import Header from '../components/Header'
-import { Container } from "react-bootstrap"
+import Header from '../components/Header';
+import { Container, Row, Col } from "react-bootstrap";
+import MagnetLink from "../components/MagnetLink";
+import Project from "../components/Project";
+import proseImg from '../assets/prose-perfector.png'
+import translateImg from '../assets/translate.png'
 
 function Home() {
 
@@ -10,16 +14,36 @@ function Home() {
       <Header />
       <div className="content">
         <Container>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae
-            tempore distinctio facere deserunt quasi quas culpa. Itaque libero
-            unde aperiam nostrum praesentium, placeat perspiciatis quo. Numquam
-            tempore saepe molestias eos? Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Repellat laboriosam, cumque dolore inventore
-            incidunt doloremque ut voluptatum, obcaecati, corrupti maiores
-            accusamus error. Porro, suscipit? Ipsam quisquam modi reiciendis ut.
-            Rem?
-          </p>
+          <Row>
+            <Col lg={8} >
+              <p className="blurb">
+                Dedicated to creating impactful web applications that merge design, functionality, and seamless user interaction. With a strong foundation in both front-end and back-end technologies, I specialize in developing intuitive, responsive, and efficient web apps.
+              </p>
+            </Col>
+            <Col lg={4} className="about-link-container">
+              <MagnetLink>
+                <a href="/" className="about-link">{'< aboutMe />'}</a>
+              </MagnetLink>
+            </Col>
+          </Row>
+          <p className="recent">Recent Projects</p>
+          <Project
+            img={proseImg}
+            alt={'prose website'}
+            projName={'Prose Perfector'}
+            projDesc={"Prose Perfector is a web application designed to enhance the writing skills of its users using OpenAI's API. It offers a seamless experience where writers can securely sign up, submit their writing pieces for evaluation, and receive detailed feedback. Key features include the ability to specify the type of writing and desired style, obtaining ratings, and receiving a rewritten version of their text for clarity and style improvement. Users can manage their profiles, view submission history, and benefit from robust authentication and password security measures."}
+            tech={'React, React Bootstrap, Vite, Node.js, Express, PostgreSQL, OpenAI API, ViteTest, Jest, JWT (jsonwebtoken, jwt-decode), bcrypt, jsonschema, axios, Font Awesome'}
+          />
+          <Project
+            img={translateImg}
+            alt={'translate website'}
+            projName={'Translate Web App'}
+            projDesc={"The Translate Web App is a comprehensive tool designed for seamless translation between English and Chinese languages. Utilizing the Google Cloud Translate API, users can input text to receive accurate translations along with phonetic spellings (pinyin). Key features include user authentication, translation history management, saving and unsaving of translations, and password reset functionality."}
+            tech={'HTML, CSS, Bootstrap, JavaScript, Flask (Python), PostgreSQL, Google Cloud Translate, Flask-DebugToolbar, Flask-Bcrypt, Xpinyin, Mailjet, Python-dotenv, Jinja, Font Awesome'}
+          />
+
+
+
         </Container>
       </div>
     </>

@@ -1,0 +1,54 @@
+.proj-container {
+  margin-top: 5em;
+  background-color: #1c5094;
+  padding: 2em;
+  border-radius: 10px;
+  margin-bottom: 10em;
+  /* box-shadow: 5px 5px #11407d; */
+}
+
+.proj-img {
+  height: 15em;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin-top: 2em;
+}
+
+.proj-name {
+  font-size: 3em;
+  color: #dca31f;
+}
+
+.proj-desc {
+  font-size: 1.25em;
+}
+
+.proj-links {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.proj-link {
+  color: #dca31f;
+  font-size: 1.25em;
+  position: relative;
+  display: inline-block;
+}
+
+.proj-link:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.demo {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.tech {
+  padding: 2em;
+  font-size: 1.25em;
+  color: rgb(216, 216, 216);
+}

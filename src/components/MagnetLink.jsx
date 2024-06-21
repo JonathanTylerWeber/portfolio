@@ -1,18 +1,15 @@
-import React, { useEffect, useRef, cloneElement } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Power4, Elastic } from "gsap/all";
 
 function MagnetLink({ children }) {
-  const containerRef = useRef(null);
+  const magnetsRefs = useRef([]);
 
   useEffect(() => {
     // Register GSAP plugins and easing
     gsap.registerPlugin(Power4, Elastic);
 
-    const container = containerRef.current;
-    const magnets = container.children;
-
-    Array.from(magnets).forEach(magnet => {
+    magnetsRefs.current.forEach(magnet => {
       magnet.addEventListener('mousemove', moveMagnet);
       magnet.addEventListener('mouseleave', resetMagnet);
     });
@@ -40,7 +37,7 @@ function MagnetLink({ children }) {
     }
 
     return () => {
-      Array.from(magnets).forEach(magnet => {
+      magnetsRefs.current.forEach(magnet => {
         magnet.removeEventListener('mousemove', moveMagnet);
         magnet.removeEventListener('mouseleave', resetMagnet);
       });
@@ -48,11 +45,13 @@ function MagnetLink({ children }) {
   }, [children]);
 
   // Clone the children to apply ref to each of them
-  const clonedChildren = React.Children.map(children, child =>
-    cloneElement(child, { ref: containerRef })
+  const clonedChildren = React.Children.map(children, (child, index) =>
+    React.cloneElement(child, {
+      ref: el => (magnetsRefs.current[index] = el)
+    })
   );
 
-  return <div ref={containerRef}>{clonedChildren}</div>;
+  return <div>{clonedChildren}</div>;
 }
 
 export default MagnetLink;

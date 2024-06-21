@@ -1,11 +1,13 @@
 import React from "react";
 import "./Home.css";
-import Header from '../components/Header';
 import { Container, Row, Col } from "react-bootstrap";
-import MagnetLink from "../components/MagnetLink";
-import Project from "../components/Project";
 import proseImg from '../assets/prose-perfector.png'
 import translateImg from '../assets/translate.png'
+
+import Header from '../components/Header';
+import MagnetLink from "../components/MagnetLink";
+import Project from "../components/Project";
+
 
 function Home() {
 

@@ -3,9 +3,8 @@ body {
   width: 100%;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
+.fixed {
+  position: absolute;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -21,18 +20,29 @@ body {
   color: #222831;
 }
 
-button.navbar-toggler.collapsed {
-  background: white;
-  border: none;
-}
-
 button.navbar-toggler {
   background: white;
+  margin-top: 2em;
+  margin-right: 2em;
+  font-size: 2em;
+}
+
+button.navbar-toggler.collapsed {
+  background: #84c1c4;
   border: none;
+  border-radius: 30px;
+  width: 2em;
+  display: flex;
+  justify-content: center;
 }
 
 button.navbar-toggler:hover {
-  background: #0C356A;
+  background: white;
+}
+
+.navbar-toggler-icon {
+  /* color: white; */
+  /* it's an image */
 }
 
 .nav-container .container {

@@ -3,19 +3,14 @@ import gsap from "gsap";
 import { Power4, Elastic } from "gsap/all";
 
 function MagnetLink({ children }) {
-  const magnetsRefs = useRef([]);
+  const magnetRef = useRef(null);
 
   useEffect(() => {
-    // Register GSAP plugins and easing
     gsap.registerPlugin(Power4, Elastic);
 
-    magnetsRefs.current.forEach(magnet => {
-      magnet.addEventListener('mousemove', moveMagnet);
-      magnet.addEventListener('mouseleave', resetMagnet);
-    });
+    const magnetButton = magnetRef.current;
 
-    function moveMagnet(event) {
-      const magnetButton = event.currentTarget;
+    const moveMagnet = (event) => {
       const bounding = magnetButton.getBoundingClientRect();
       const magnetsStrength = 50; // Adjust strength as needed
 
@@ -23,35 +18,30 @@ function MagnetLink({ children }) {
         x: (((event.clientX - bounding.left) / magnetButton.offsetWidth) - 0.5) * magnetsStrength,
         y: (((event.clientY - bounding.top) / magnetButton.offsetHeight) - 0.5) * magnetsStrength,
         rotate: "0.001deg",
-        ease: Power4.easeOut // Use Power4 easing
+        ease: Power4.easeOut
       });
-    }
+    };
 
-    function resetMagnet(event) {
-      const magnetButton = event.currentTarget;
+    const resetMagnet = () => {
       gsap.to(magnetButton, 1.5, {
         x: 0,
         y: 0,
-        ease: Elastic.easeOut // Use Elastic easing
-      });
-    }
-
-    return () => {
-      magnetsRefs.current.forEach(magnet => {
-        magnet.removeEventListener('mousemove', moveMagnet);
-        magnet.removeEventListener('mouseleave', resetMagnet);
+        ease: Elastic.easeOut
       });
     };
-  }, [children]);
 
-  // Clone the children to apply ref to each of them
-  const clonedChildren = React.Children.map(children, (child, index) =>
-    React.cloneElement(child, {
-      ref: el => (magnetsRefs.current[index] = el)
-    })
-  );
+    magnetButton.addEventListener('mousemove', moveMagnet);
+    magnetButton.addEventListener('mouseleave', resetMagnet);
 
-  return <div>{clonedChildren}</div>;
+    return () => {
+      magnetButton.removeEventListener('mousemove', moveMagnet);
+      magnetButton.removeEventListener('mouseleave', resetMagnet);
+    };
+  }, []);
+
+  return React.cloneElement(children, {
+    ref: magnetRef
+  });
 }
 
 export default MagnetLink;

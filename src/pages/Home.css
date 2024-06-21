@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #0C356A;
+  background-color: #222831;
   overscroll-behavior: none;
   overflow-x: hidden;
 }
@@ -15,6 +15,7 @@ body {
 
 p {
   color: white;
+  font-family: "Kanit", sans-serif;
 }
 
 .blurb {
@@ -27,11 +28,12 @@ p {
 }
 
 .about-link {
-  color: #dca31f;
+  color: #84c1c4;
   font-size: 3em;
   padding-top: 1em;
   position: relative;
   display: inline-block;
+  font-family: "Kanit", sans-serif;
 }
 
 .about-link:hover {
@@ -41,7 +43,8 @@ p {
 
 .recent {
   font-size: 5em;
-  color: #dca31f;
+  font-weight: 500;
+  color: #84c1c4;
   margin-top: 2em;
   text-align: center;
 }

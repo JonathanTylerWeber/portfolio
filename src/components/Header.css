@@ -1,14 +1,14 @@
 .header {
   background-color: #76ABAE;
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
 .title-container {
   position: absolute;
-  top: 35%;
+  top: 20%;
   right: 5%;
   overflow: hidden;
   /* Hide overflow content */

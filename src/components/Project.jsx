@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const Project = ({ img, alt, projName, projDesc, tech }) => {
+const Project = ({ alt, projName, projDesc, tech, video }) => {
   return (
     <div className="proj-container">
-      <img className='proj-img' src={img} alt={alt} />
+      <video className='proj-vid' src={video} autoplay='true' loop alt={alt} />
       <div className='proj-content'>
         <p className='proj-name'>{projName}</p>
         <p className='proj-desc'>{projDesc} </p>

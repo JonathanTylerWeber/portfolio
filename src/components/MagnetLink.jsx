@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Power4, Elastic } from "gsap/all";
 
-function MagnetLink({ children }) {
+function MagnetLink({ children, }) {
   const magnetRef = useRef(null);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function MagnetLink({ children }) {
 
     const moveMagnet = (event) => {
       const bounding = magnetButton.getBoundingClientRect();
-      const magnetsStrength = 50; // Adjust strength as needed
+      const magnetsStrength = 100; // Adjust strength as needed
 
       gsap.to(magnetButton, 1.5, {
         x: (((event.clientX - bounding.left) / magnetButton.offsetWidth) - 0.5) * magnetsStrength,

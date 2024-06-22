@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.css";
 import { Container, Row, Col } from "react-bootstrap";
-import proseImg from '../assets/prose-perfector.png'
-import translateImg from '../assets/translate.png'
+
+import proseVid from '../assets/proseVid.mp4'
+import translateVid from '../assets/translateVid.mp4'
 
 import Header from '../components/Header';
 import MagnetLink from "../components/MagnetLink";
@@ -30,14 +31,14 @@ function Home() {
           </Row>
           <p className="recent">Recent Projects</p>
           <Project
-            img={proseImg}
+            video={proseVid}
             alt={'prose website'}
             projName={'Prose Perfector'}
             projDesc={"Prose Perfector is a web application designed to enhance the writing skills of its users using OpenAI's API. It offers a seamless experience where writers can securely sign up, submit their writing pieces for evaluation, and receive detailed feedback. Key features include the ability to specify the type of writing and desired style, obtaining ratings, and receiving a rewritten version of their text for clarity and style improvement. Users can manage their profiles, view submission history, and benefit from robust authentication and password security measures."}
             tech={'React, React Bootstrap, Vite, Node.js, Express, PostgreSQL, OpenAI API, ViteTest, Jest, JWT (jsonwebtoken, jwt-decode), bcrypt, jsonschema, axios, Font Awesome'}
           />
           <Project
-            img={translateImg}
+            video={translateVid}
             alt={'translate website'}
             projName={'Translate Web App'}
             projDesc={"The Translate Web App is a comprehensive tool designed for seamless translation between English and Chinese languages. Utilizing the Google Cloud Translate API, users can input text to receive accurate translations along with phonetic spellings (pinyin). Key features include user authentication, translation history management, saving and unsaving of translations, and password reset functionality."}

@@ -1,6 +1,6 @@
 .sliderContainer {
   position: absolute;
-  top: calc(100vh - 400px);
+  top: calc(100vh - 500px);
   left: 0;
   right: 0;
   overflow: hidden;

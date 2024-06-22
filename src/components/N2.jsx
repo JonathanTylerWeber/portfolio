@@ -56,7 +56,7 @@ function N2() {
 
   useEffect(() => {
     if (shouldAnimate && isLargeScreen) {
-      const timer = setTimeout(() => setShouldAnimate(false), 300); // duration of the expand animation
+      const timer = setTimeout(() => setShouldAnimate(false), 300);
       return () => clearTimeout(timer);
     }
   }, [shouldAnimate, isLargeScreen]);
@@ -88,14 +88,23 @@ function N2() {
       </div>
       <div id="navbar-container" className={`navbar-container ${isOpen ? 'open' : ''}`}>
 
-        <MagnetLink>
+        {isLargeScreen ? (
+          <MagnetLink>
+            <button className={`toggle-button ${toggleButtonClass}`} onClick={toggleNavbar}>
+              <FontAwesomeIcon
+                icon={faEllipsis}
+                className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
+              />
+            </button>
+          </MagnetLink>
+        ) : (
           <button className={`toggle-button ${toggleButtonClass}`} onClick={toggleNavbar}>
             <FontAwesomeIcon
               icon={faEllipsis}
               className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
             />
           </button>
-        </MagnetLink>
+        )}
         <div className={`navbar ${isOpen ? 'open' : ''}`}>
 
           <div className='list'>

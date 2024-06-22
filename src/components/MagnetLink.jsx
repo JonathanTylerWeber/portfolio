@@ -12,7 +12,7 @@ function MagnetLink({ children, }) {
 
     const moveMagnet = (event) => {
       const bounding = magnetButton.getBoundingClientRect();
-      const magnetsStrength = 100; // Adjust strength as needed
+      const magnetsStrength = 75;
 
       gsap.to(magnetButton, 1.5, {
         x: (((event.clientX - bounding.left) / magnetButton.offsetWidth) - 0.5) * magnetsStrength,

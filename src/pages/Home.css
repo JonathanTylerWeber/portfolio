@@ -3,14 +3,18 @@ html {
 }
 
 body {
-  background-color: #222831;
+  background-color: #76ABAE;
   overscroll-behavior: none;
   overflow-x: hidden;
 }
 
 .content {
-  margin-top: 12em;
-  margin-bottom: 10em;
+  background-color: #222831;
+}
+
+.content {
+  padding-top: 12em;
+  padding-bottom: 10em;
 }
 
 p {
@@ -28,7 +32,7 @@ p {
 }
 
 .about-link {
-  color: #84c1c4;
+  color: #8bced2;
   font-size: 3em;
   padding-top: 1em;
   position: relative;
@@ -44,7 +48,7 @@ p {
 .recent {
   font-size: 5em;
   font-weight: 500;
-  color: #84c1c4;
+  color: #8bced2;
   margin-top: 2em;
   text-align: center;
 }

@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <Header className='home' />
       <div className="content">
         <Container>
           <Row>

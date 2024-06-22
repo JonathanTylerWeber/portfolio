@@ -1,12 +1,12 @@
 .proj-container {
   margin-top: 5em;
-  background-color: #12161b;
+  background-color: #191f25;
   border-radius: 10px;
   margin-bottom: 10em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
 }
 
 .proj-img {
@@ -24,12 +24,12 @@
 
 .proj-name {
   font-size: 3em;
-  color: #84c1c4;
+  color: #8bced2;
   font-family: "Kanit", sans-serif;
 }
 
 .proj-desc {
-  font-size: 1.25em;
+  font-size: 1.5em;
   color: white;
   font-family: "Kanit", sans-serif;
 }
@@ -37,7 +37,7 @@
 .tech {
   padding: 1em 0;
   font-size: 1.25em;
-  color: white;
+  color: rgb(196, 196, 196);
   font-family: "Kanit", sans-serif;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .proj-link {
-  color: #84c1c4;
+  color: #8bced2;
   font-size: 3em;
   position: relative;
   display: inline-block;

@@ -1,18 +1,32 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { React, useState } from 'react';
+import { Navbar, Nav, Offcanvas } from 'react-bootstrap';
 import MagnetLink from './MagnetLink';
 import useHeaderVisibility from '../components/useHeaderVisibility';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import './NavbarComp.css';
 
 function NavbarComp() {
   const isHeaderVisible = useHeaderVisibility();
 
+  const [navbarExpanded, setNavbarExpanded] = useState(false);
+
+  const toggleNavbar = () => {
+    setNavbarExpanded(!navbarExpanded);
+  };
+
+  const closeNavbar = () => {
+    setNavbarExpanded(false);
+  };
+
   return (
     <>
       {isHeaderVisible ? (
-        <Navbar expand="lg" fixed="top" className="navbar fixed">
-          <Navbar.Toggle aria-controls="basic-navbar-nav " className="ml-auto toggler" />
-          <Navbar.Collapse id="basic-navbar-nav ml-auto">
+        <Navbar expand="lg" fixed="top" className={`navbar fixed ${isHeaderVisible ? 'header-visible' : ''} ${navbarExpanded ? 'navbar-expanded' : ''}`}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto toggler">
+            <FontAwesomeIcon icon={faEllipsis} className="icon" />
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <MagnetLink>
                 <Nav.Link className="nav-link mx-3" exact="true" href="/">Jonathan Weber</Nav.Link>
@@ -29,9 +43,11 @@ function NavbarComp() {
           </Navbar.Collapse>
         </Navbar>
       ) : (
-        <Navbar expand={false} fixed="top">
-          <Navbar.Toggle aria-controls="basic-navbar-nav " className="ml-auto toggler" />
-          <Navbar.Collapse id="basic-navbar-nav ml-auto">
+        <Navbar expand={false} fixed="top" className={`${navbarExpanded ? 'navbar-expanded' : ''}`}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto toggler ">
+            <FontAwesomeIcon icon={faEllipsis} className="icon" />
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <MagnetLink>
                 <Nav.Link className="nav-link mx-3" exact="true" href="/">Jonathan Weber</Nav.Link>

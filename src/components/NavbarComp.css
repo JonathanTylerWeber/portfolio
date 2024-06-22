@@ -1,10 +1,16 @@
-html,
+/* html,
 body {
   width: 100%;
 }
 
 .fixed {
   position: absolute;
+}
+
+.navbar,
+.navbar-light,
+.fixed-top {
+  background-color: #191f25;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -22,29 +28,71 @@ body {
 
 button.navbar-toggler {
   background: white;
-  margin-top: 2em;
-  margin-right: 2em;
-  font-size: 2em;
+  margin-top: .5em;
+  margin-right: .5em;
+  font-size: 3em;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+}
+
+.icon {
+  color: #191f25;
+  font-size: 1em;
+  padding: .5em;
+  border-radius: 50%;
+}
+
+.icon:hover {
+  color: white;
 }
 
 button.navbar-toggler.collapsed {
-  background: #84c1c4;
+  background: white;
   border: none;
-  border-radius: 30px;
+  border-radius: 50%;
   width: 2em;
   display: flex;
   justify-content: center;
 }
 
 button.navbar-toggler:hover {
-  background: white;
-}
-
-.navbar-toggler-icon {
-  /* color: white; */
-  /* it's an image */
+  background: #76ABAE;
+  color: white;
 }
 
 .nav-container .container {
   width: 90%;
 }
+
+@media (min-width: 992px) {
+  .header-visible .toggler {
+    font-size: 0;
+    width: 0;
+    padding: 0;
+  }
+
+
+}
+
+@media (max-width: 992px) {
+  button.navbar-toggler.collapsed {
+    background: white;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  button.navbar-toggler {
+    background: white;
+    margin-top: .25em;
+    margin-right: .25em;
+    font-size: 2em;
+  }
+} */

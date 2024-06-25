@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useRef } from "react";
 import "./Home.css";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -9,6 +9,7 @@ import Header from '../components/Header';
 import MagnetLink from "../components/MagnetLink";
 import Project from "../components/Project";
 import FadeInOnScroll from "../components/FadeInOnScroll";
+import Footer from "../components/Footer";
 
 
 function Home() {
@@ -60,6 +61,7 @@ function Home() {
 
         </Container>
       </div>
+      <Footer />
     </>
   );
 }

@@ -6,15 +6,19 @@ body {
   background-color: #76ABAE;
   overscroll-behavior: none;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
 
 .content {
   background-color: #222831;
-}
-
-.content {
   padding-top: 12em;
-  padding-bottom: 10em;
+  padding-bottom: 5em;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
 }
 
 p {

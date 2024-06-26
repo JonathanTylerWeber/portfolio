@@ -5,23 +5,19 @@
   right: 0;
   overflow: hidden;
   width: 100vw;
-  /* Ensures it spans the full width */
 }
 
 .slider {
   display: flex;
-  /* Ensure inline elements stay side by side */
   white-space: nowrap;
-  /* Prevent text wrapping */
 }
 
 .slider p {
   margin: 0;
   color: white;
-  font-size: 230px;
+  font-size: calc(1vw + 12em);
   font-weight: 500;
   padding-right: 50px;
-  /* Adjust spacing between texts */
 }
 
 .slider p:nth-of-type(2) {
@@ -31,6 +27,5 @@
 
 .slider p:nth-of-type(3) {
   left: 200%;
-  /* Positioning the third text */
   top: 0;
 }

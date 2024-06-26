@@ -4,12 +4,18 @@
   background-color: #13191d;
   color: white;
   font-family: "Kanit", sans-serif;
-  position: relative;
-  transition: transform 0.3s ease-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 0;
+}
+
+.footer-body{
+  /* padding-top: 200px; */
+  width: 100%;
+  max-width: 1800px;
 }
 
 .foot-container {
@@ -52,7 +58,7 @@
 .email,
 .contact-link {
   color: #8bced2;
-  margin: 0 1em;
+  margin: 0 2em;
   font-size: calc(1.5vw + 1em);
 }
 

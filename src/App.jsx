@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home'
-import N2 from "./components/N2";
+import NavbarComp from "./components/NavbarComp";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <N2 />
+        <NavbarComp />
         <main>
           <Routes>
             <Route

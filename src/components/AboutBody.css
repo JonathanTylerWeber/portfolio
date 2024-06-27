@@ -41,6 +41,10 @@
   font-size: 3em;
 }
 
+.resume-link {
+  margin-left: .5em;
+}
+
 .resume:hover {
   text-decoration: none;
   color: white;
@@ -78,5 +82,37 @@
   .circle-about {
     border-radius: 0 0 75% 75%;
     height: 500%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .about-name {
+    font-size: 4em;
+    margin-top: 2em;
+  }
+
+  .about-blurb {
+    font-size: 1em;
+  }
+
+  .resume-container {
+    margin-bottom: 4em;
+  }
+
+  .resume {
+    margin-top: 2em;
+  }
+
+  .about-me {
+    font-size: 1em;
+  }
+
+  .video-container {
+    margin-top: 5em;
+  }
+
+  .video {
+    height: 12em;
   }
 }

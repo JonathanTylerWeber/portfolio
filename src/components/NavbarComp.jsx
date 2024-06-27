@@ -6,7 +6,7 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import './NavbarComp.css';
 
-function NavbarComp({ backgroundColor }) {
+function NavbarComp() {
   const isHeaderVisible = useHeaderVisibility();
   const [isOpen, setIsOpen] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);

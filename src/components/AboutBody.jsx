@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useScroll, useTransform, motion } from 'framer-motion';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import './AboutBody.css'
 
 import FadeInOnScroll from "./FadeInOnScroll";
@@ -48,7 +50,10 @@ const AboutBody = () => {
               <div className="resume-container">
                 <MagnetLink>
                   <a href={resumeUrl} className="resume" target="_blank" rel="noopener noreferrer">
-                    Take a look at my resume
+                    <span>
+                      Resume
+                      <FontAwesomeIcon className="resume-link" icon={faLink} />
+                    </span>
                   </a>
                 </MagnetLink>
               </div>

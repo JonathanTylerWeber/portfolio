@@ -28,24 +28,24 @@ function Body() {
           <Container>
             <Row>
               <Col lg={8} >
-                <FadeInOnScroll>
+                <FadeInOnScroll threshold={.05}>
                   <p className="blurb">
                     Dedicated to creating impactful web applications that merge design, functionality, and seamless user interaction. With a strong foundation in both front-end and back-end technologies, I specialize in developing intuitive, responsive, and efficient web apps.
                   </p>
                 </FadeInOnScroll>
               </Col>
               <Col lg={4} className="about-link-container">
-                <FadeInOnScroll>
+                <FadeInOnScroll threshold={.05}>
                   <MagnetLink>
-                    <a href="/" className="about-link">{'< aboutMe />'}</a>
+                    <a href="/about" className="about-link">{'< aboutMe />'}</a>
                   </MagnetLink>
                 </FadeInOnScroll>
               </Col>
             </Row>
-            <FadeInOnScroll>
+            <FadeInOnScroll threshold={.05}>
               <p className="recent">Recent Projects</p>
             </FadeInOnScroll>
-            <FadeInOnScroll threshold={.1}>
+            <FadeInOnScroll threshold={.05}>
               <Project
                 video={proseVid}
                 alt={'prose website'}
@@ -54,7 +54,7 @@ function Body() {
                 tech={'React, React Bootstrap, Vite, Node.js, Express, PostgreSQL, OpenAI API, ViteTest, Jest, JWT (jsonwebtoken, jwt-decode), bcrypt, jsonschema, axios, Font Awesome'}
               />
             </FadeInOnScroll>
-            <FadeInOnScroll threshold={.1}>
+            <FadeInOnScroll threshold={.05}>
               <Project
                 video={translateVid}
                 alt={'translate website'}

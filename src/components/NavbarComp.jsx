@@ -6,13 +6,16 @@ import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import './NavbarComp.css';
 
-function N2() {
+function NavbarComp({ backgroundColor }) {
   const isHeaderVisible = useHeaderVisibility();
   const [isOpen, setIsOpen] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [hideToggle, setHideToggle] = useState(window.innerWidth >= 992);
   const [shouldShrink, setShouldShrink] = useState(false);
   const [hasExpandedOnce, setHasExpandedOnce] = useState(false);
+
+  const githubLink = 'https://github.com/JonathanTylerWeber'
+  const linkedInLink = 'https://www.linkedin.com/in/jonathantweber/'
 
   const toggleNavbar = () => {
     setIsOpen(prevIsOpen => !prevIsOpen);
@@ -70,22 +73,22 @@ function N2() {
 
   return (
     <>
-      <div className='nav-lg'>
+      <div className='nav-lg' >
         <div className='left-link'>
           <MagnetLink>
-            <a href='' className='lg-link'>Jonathan Weber</a>
+            <a href='/' className='lg-link'>Jonathan Weber</a>
           </MagnetLink>
         </div>
         <div className='right-links'>
           <MagnetLink>
-            <a href='' className='lg-link'>About</a>
+            <a href='/about' className='lg-link'>About</a>
           </MagnetLink>
           <br />
           <MagnetLink>
-            <a href='' className='lg-link'>Contact</a>
+            <a href='/' className='lg-link'>Contact</a>
           </MagnetLink>
         </div>
-      </div>
+      </div >
       <div id="navbar-container" className={`navbar-container ${isOpen ? 'open' : ''}`}>
 
         {isLargeScreen ? (
@@ -111,11 +114,11 @@ function N2() {
             <p className='navigation'>Navigation</p>
             <hr className="horizontal-line" />
             <MagnetLink>
-              <a href='' className='link'>Jonathan Weber</a>
+              <a href='/' className='link'>Jonathan Weber</a>
             </MagnetLink>
             <br />
             <MagnetLink>
-              <a href='' className='link'>About</a>
+              <a href='/about' className='link'>About</a>
             </MagnetLink>
             <br />
             <MagnetLink>
@@ -125,12 +128,12 @@ function N2() {
 
           <div className='nav-foot'>
             <MagnetLink>
-              <a href=''>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} className='foot-link' />
               </a>
             </MagnetLink>
             <MagnetLink>
-              <a href=''>
+              <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedin} className='foot-link' />
               </a>
             </MagnetLink>
@@ -142,4 +145,4 @@ function N2() {
   );
 }
 
-export default N2;
+export default NavbarComp;

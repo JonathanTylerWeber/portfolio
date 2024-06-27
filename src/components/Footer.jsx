@@ -11,6 +11,9 @@ import FadeInOnScroll from './FadeInOnScroll';
 
 const Footer = () => {
 
+  const githubLink = 'https://github.com/JonathanTylerWeber'
+  const linkedInLink = 'https://www.linkedin.com/in/jonathantweber/'
+
   const [chinaTime, setChinaTime] = useState('');
 
   useEffect(() => {
@@ -55,12 +58,12 @@ const Footer = () => {
           </div>
           <div className='foot-right'>
             <MagnetLink>
-              <a href='' className='footer-link github'>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
                 <FontAwesomeIcon icon={faGithub} />
               </a>
             </MagnetLink>
             <MagnetLink>
-              <a href='' className='footer-link'>
+              <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
             </MagnetLink>

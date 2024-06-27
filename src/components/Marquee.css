@@ -29,3 +29,14 @@
   left: 200%;
   top: 0;
 }
+
+@media (max-width: 991px) {
+
+  .sliderContainer {
+    margin-top: 7em;
+  }
+
+  .slider p {
+    font-size: calc(.5vw + 7em);
+  }
+}

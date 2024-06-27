@@ -44,19 +44,17 @@
   margin-bottom: 0;
 }
 
-.email-contact {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-}
+
 
 .contact-link {
   position: relative;
   display: inline-block;
+  color: #8bced2;
+  margin: 0 2em;
+  font-size: calc(1.5vw + 1em);
 }
 
-.email,
-.contact-link {
+.email {
   color: #8bced2;
   margin: 0 2em;
   font-size: calc(1.5vw + 1em);

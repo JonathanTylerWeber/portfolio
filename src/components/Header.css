@@ -42,14 +42,11 @@
 
 .title-container:not(:hover) .title {
   transform: translateX(0);
-  /* Slide back to original position */
 }
 
 .title-container:not(:hover) .secondary-title {
   transform: translateX(100%);
-  /* Slide out to the right */
   visibility: hidden;
-  /* Hide secondary title */
 }
 
 @media (max-width: 991px) {

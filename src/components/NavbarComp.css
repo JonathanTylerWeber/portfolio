@@ -4,12 +4,18 @@
   right: 20px;
   z-index: 1000;
   transition: right 0.3s ease;
+  pointer-events: none;
+}
+
+.navbar-container.open {
+  pointer-events: auto;
 }
 
 .nav-lg {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  z-index: 2000;
 }
 
 .left-link {
@@ -27,12 +33,12 @@
   font-family: "Kanit", sans-serif;
   color: #fff;
   padding: 2em;
-
+  z-index: 5;
 }
 
 .lg-link:hover {
   text-decoration: none;
-  color: #222831;
+  color: var(--hover-color);
 }
 
 
@@ -62,45 +68,16 @@
   width: 5em;
   height: 5em;
   margin: 2em;
-  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.toggle-button.visible {
+  pointer-events: auto;
 }
 
 .toggle-button:hover {
   background-color: #8bced2;
   color: white;
-}
-
-.hide-toggle {
-  display: none;
-}
-
-@keyframes expand {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes shrink {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(0);
-  }
-}
-
-.toggle-button.animate {
-  animation: expand 0.3s ease-out;
-}
-
-.toggle-button.shrink {
-  animation: shrink 0.3s ease-out;
-  transform: scale(0);
 }
 
 .navbar {
@@ -115,11 +92,14 @@
   overflow-y: auto;
   z-index: 1000;
   display: block;
+  pointer-events: none;
+
 }
 
 .navbar.open {
   transform: translateX(0%);
   box-shadow: 0 0 60px rgba(0, 0, 0, 2);
+  pointer-events: auto;
 }
 
 .list {
@@ -176,9 +156,6 @@
 }
 
 @media (max-width: 991px) {
-  .toggle-button {
-    display: block;
-  }
 
   .nav-lg {
     display: none;
@@ -189,6 +166,7 @@
     width: 4em;
     margin-right: .25em;
     margin-top: 1em;
+    pointer-events: auto;
   }
 
   .navbar {

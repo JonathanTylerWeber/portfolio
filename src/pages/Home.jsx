@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <>
-      <NavbarComp />
+      <NavbarComp backgroundColor={'#76ABAE'} hoverColor={'#191f25'} />
       <Header />
       <Body />
       <Footer />

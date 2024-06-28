@@ -15,6 +15,7 @@
   color: white;
   font-family: "Kanit", sans-serif;
   font-size: calc(1.5vw + 5em);
+  font-weight: 600;
   margin-bottom: 1em;
 }
 
@@ -89,7 +90,7 @@
 
   .about-name {
     font-size: 4em;
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   .about-blurb {

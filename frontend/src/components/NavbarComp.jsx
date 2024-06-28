@@ -77,7 +77,7 @@ function NavbarComp({ backgroundColor, hoverColor }) {
           </MagnetLink>
           <br />
           <MagnetLink>
-            <a href='/' className='lg-link'>Contact</a>
+            <a href='/contact' className='lg-link'>Contact</a>
           </MagnetLink>
         </div>
       </div>
@@ -119,7 +119,7 @@ function NavbarComp({ backgroundColor, hoverColor }) {
             </MagnetLink>
             <br />
             <MagnetLink>
-              <a href='' className='link'>Contact</a>
+              <a href='/contact' className='link'>Contact</a>
             </MagnetLink>
           </div>
           <div className='nav-foot'>

@@ -1,0 +1,26 @@
+.contact-body {
+  background-color: #222831;
+  height: 160vh;
+  padding-top: 3em;
+  /* padding-bottom: em; */
+}
+
+.contact-title {
+  color: white;
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  font-size: calc(1.5vw + 5em);
+  font-weight: 600;
+  padding-bottom: .5em;
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 4em;
+    margin-top: 1em;
+  }
+
+  .contact-body {
+    height: 120vh;
+  }
+}

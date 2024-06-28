@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
           <a href="mailto:jonathantweber@gmail.com" className='email'>jonathantweber@gmail.com</a>
           <MagnetLink>
-            <a href='' className='contact-link'>Contact</a>
+            <a href='/contact' className='contact-link'>Contact</a>
           </MagnetLink>
         </Container>
         <div className='foot'>

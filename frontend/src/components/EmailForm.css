@@ -1,0 +1,137 @@
+.email-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-label {
+  font-family: "Kanit", sans-serif;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-input {
+  color: white;
+  background-color: #191f25;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.5em;
+  font-family: "Kanit", sans-serif;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  transition: border-color 0.2s ease, font-size 0.2s ease;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.form-input::placeholder {
+  color: rgb(173, 173, 173);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 1px solid white;
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+  font-size: 1.5em !important;
+  box-sizing: border-box;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.btn {
+  background-color: #76ABAE;
+  color: white;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 2em;
+  width: 40%;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.btn:active {
+  background-color: white;
+  color: #222831;
+  outline: none;
+}
+
+.btn:focus {
+  outline: none !important;
+  color: white;
+}
+
+.status {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 5px;
+}
+
+.status.success {
+  color: #8bced2;
+}
+
+.status.error {
+  color: rgb(255, 83, 83);
+}
+
+@media (max-width: 480px) {
+  .email-form {
+    width: 100%;
+  }
+
+  .form-label {
+    font-size: 1.5em;
+  }
+
+  .form-input {
+    font-size: 1em;
+    margin-bottom: .75em;
+  }
+
+  .form-input:-webkit-autofill,
+  .form-input:-webkit-autofill:hover,
+  .form-input:-webkit-autofill:focus,
+  .form-input:-webkit-autofill:active {
+    font-size: 1em !important;
+  }
+
+  .btn {
+    width: 70%;
+  }
+
+  .status {
+    font-size: 1.5em;
+  }
+}

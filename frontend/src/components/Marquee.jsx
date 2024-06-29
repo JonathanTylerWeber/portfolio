@@ -1,14 +1,13 @@
-'use client'
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, memo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
 import './Marquee.css'
 
-export default function Marquee() {
+function Marquee() {
   const firstText = useRef(null);
   const secondText = useRef(null);
-  const thirdText = useRef(null); // New reference for the third text
+  const thirdText = useRef(null);
   const slider = useRef(null);
   let xPercent = 0;
   let direction = -1.25;
@@ -36,7 +35,7 @@ export default function Marquee() {
     }
     gsap.set(firstText.current, { xPercent: xPercent });
     gsap.set(secondText.current, { xPercent: xPercent });
-    gsap.set(thirdText.current, { xPercent: xPercent }); // Set position for the third text
+    gsap.set(thirdText.current, { xPercent: xPercent });
     requestAnimationFrame(animate);
     xPercent += 0.1 * direction;
   };
@@ -46,8 +45,10 @@ export default function Marquee() {
       <div ref={slider} className='slider'>
         <p ref={firstText}>Jonathan Weber - </p>
         <p ref={secondText}>Jonathan Weber - </p>
-        <p ref={thirdText}>Jonathan Weber - </p> {/* New third text element */}
+        <p ref={thirdText}>Jonathan Weber - </p>
       </div>
     </div>
   );
 }
+
+export default memo(Marquee)

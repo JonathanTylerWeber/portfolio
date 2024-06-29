@@ -1,11 +1,13 @@
-import React from 'react'
+import { memo, Suspense, lazy } from 'react'
 import "./Project.css";
-import MagnetLink from './MagnetLink';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+const MagnetLink = lazy(() => import('./MagnetLink'));
+
 const Project = ({ alt, projName, projDesc, tech, video }) => {
+
   return (
     <div className="proj-container">
       <video className='proj-vid' src={video} autoPlay loop muted alt={alt} />
@@ -15,17 +17,21 @@ const Project = ({ alt, projName, projDesc, tech, video }) => {
         <p className='tech'>{tech} </p>
         <span className='proj-links'>
 
-          <MagnetLink>
-            <a href="#">
-              <FontAwesomeIcon className="proj-link" icon={faLink} />
-            </a>
-          </MagnetLink>
+          <Suspense>
+            <MagnetLink>
+              <a href="#">
+                <FontAwesomeIcon className="proj-link" icon={faLink} />
+              </a>
+            </MagnetLink>
+          </Suspense>
 
-          <MagnetLink>
-            <a href="#">
-              <FontAwesomeIcon className="proj-link" icon={faGithub} />
-            </a>
-          </MagnetLink>
+          <Suspense>
+            <MagnetLink>
+              <a href="#">
+                <FontAwesomeIcon className="proj-link" icon={faGithub} />
+              </a>
+            </MagnetLink>
+          </Suspense>
 
         </span>
       </div>
@@ -34,4 +40,4 @@ const Project = ({ alt, projName, projDesc, tech, video }) => {
   )
 }
 
-export default Project
+export default memo(Project)

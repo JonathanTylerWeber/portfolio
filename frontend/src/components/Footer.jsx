@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense, memo } from 'react';
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useScroll, useTransform } from 'framer-motion';
 import './Footer.css';
 
-import MagnetLink from './MagnetLink';
-
+const MagnetLink = lazy(() => import('./MagnetLink'));
 
 const Footer = () => {
-
-  const githubLink = 'https://github.com/JonathanTylerWeber'
-  const linkedInLink = 'https://www.linkedin.com/in/jonathantweber/'
+  const githubLink = 'https://github.com/JonathanTylerWeber';
+  const linkedInLink = 'https://www.linkedin.com/in/jonathantweber/';
 
   const [chinaTime, setChinaTime] = useState('');
 
@@ -47,25 +45,29 @@ const Footer = () => {
             <p className='open-work'>Open for work</p>
           </div>
           <a href="mailto:jonathantweber@gmail.com" className='email'>jonathantweber@gmail.com</a>
-          <MagnetLink>
-            <a href='/contact' className='contact-link'>Contact</a>
-          </MagnetLink>
+          <Suspense fallback={<div>Loading...</div>}>
+            <MagnetLink>
+              <a href='/contact' className='contact-link'>Contact</a>
+            </MagnetLink>
+          </Suspense>
         </Container>
         <div className='foot'>
           <div className='foot-left'>
             <p className='time'>Local Time: {chinaTime} CST</p>
           </div>
           <div className='foot-right'>
-            <MagnetLink>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-            </MagnetLink>
-            <MagnetLink>
-              <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-            </MagnetLink>
+            <Suspense fallback={<div>Loading...</div>}>
+              <MagnetLink>
+                <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </MagnetLink>
+              <MagnetLink>
+                <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </MagnetLink>
+            </Suspense>
           </div>
         </div>
       </div>
@@ -73,4 +75,4 @@ const Footer = () => {
   );
 }
 
-export default Footer;
+export default memo(Footer);

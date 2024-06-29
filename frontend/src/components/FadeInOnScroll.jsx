@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import './FadeInOnScroll.css';
 
 const FadeInOnScroll = ({ children, className = '', delay = 0, threshold = .5 }) => {
@@ -39,4 +39,4 @@ const FadeInOnScroll = ({ children, className = '', delay = 0, threshold = .5 })
   );
 };
 
-export default FadeInOnScroll;
+export default memo(FadeInOnScroll);

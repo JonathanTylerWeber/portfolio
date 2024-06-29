@@ -1,14 +1,20 @@
-import React from 'react'
-import NavbarComp from '../components/NavbarComp'
-import ContactBody from '../components/ContactBody'
+import { memo, lazy, Suspense } from 'react'
+
+const NavbarComp = lazy(() => import('../components/NavbarComp'));
+const ContactBody = lazy(() => import('../components/ContactBody'));
 
 const Contact = () => {
   return (
     <>
-      <NavbarComp backgroundColor={'#222831'} hoverColor={'#8bced2'} />
-      <ContactBody />
+      <Suspense>
+        <NavbarComp backgroundColor={'#222831'} hoverColor={'#8bced2'} />
+      </Suspense>
+
+      <Suspense>
+        <ContactBody />
+      </Suspense>
     </>
   )
 }
 
-export default Contact
+export default memo(Contact)

@@ -1,32 +1,31 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { Power4, Elastic } from "gsap/all";
+import React, { useEffect, useRef, memo } from 'react';
+import gsap from 'gsap';
 
-function MagnetLink({ children, }) {
+const MagnetLink = ({ children }) => {
   const magnetRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(Power4, Elastic);
-
     const magnetButton = magnetRef.current;
 
     const moveMagnet = (event) => {
       const bounding = magnetButton.getBoundingClientRect();
       const magnetsStrength = 75;
 
-      gsap.to(magnetButton, 1.5, {
+      gsap.to(magnetButton, {
+        duration: 1.5,
         x: (((event.clientX - bounding.left) / magnetButton.offsetWidth) - 0.5) * magnetsStrength,
         y: (((event.clientY - bounding.top) / magnetButton.offsetHeight) - 0.5) * magnetsStrength,
-        rotate: "0.001deg",
-        ease: Power4.easeOut
+        rotate: '0.001deg',
+        ease: 'power4.out'
       });
     };
 
     const resetMagnet = () => {
-      gsap.to(magnetButton, 1.5, {
+      gsap.to(magnetButton, {
+        duration: 1.5,
         x: 0,
         y: 0,
-        ease: Elastic.easeOut
+        ease: 'elastic.out(1, 0.3)'
       });
     };
 
@@ -42,6 +41,6 @@ function MagnetLink({ children, }) {
   return React.cloneElement(children, {
     ref: magnetRef
   });
-}
+};
 
-export default MagnetLink;
+export default memo(MagnetLink);

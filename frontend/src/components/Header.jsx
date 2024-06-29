@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo, lazy, Suspense } from 'react';
 import "./Header.css";
-import Marquee from "./Marquee";
+
+const Marquee = lazy(() => import('../components/Marquee'));
 
 function Header() {
   return (
@@ -12,10 +13,12 @@ function Header() {
             <span className="secondary-title">Located in Chengdu, China</span>
           </p>
         </div>
-        <Marquee text="Jonathan Weber -" />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Marquee text="Jonathan Weber -" />
+        </Suspense>
       </div>
     </>
   );
 }
 
-export default Header;
+export default memo(Header);

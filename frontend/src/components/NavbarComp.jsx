@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, memo, lazy, Suspense } from 'react';
 import { useScroll, motion, } from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import './NavbarComp.css';
 
-import MagnetLink from './MagnetLink';
+const MagnetLink = lazy(() => import('./MagnetLink'));
 
 function NavbarComp({ backgroundColor, hoverColor }) {
 
@@ -67,36 +67,44 @@ function NavbarComp({ backgroundColor, hoverColor }) {
     <>
       <div className='nav-lg' style={{ backgroundColor: backgroundColor, '--hover-color': hoverColor }}>
         <div className='left-link'>
-          <MagnetLink>
-            <a href='/' className='lg-link'>Jonathan Weber</a>
-          </MagnetLink>
+          <Suspense >
+            <MagnetLink>
+              <a href='/' className='lg-link'>Jonathan Weber</a>
+            </MagnetLink>
+          </Suspense>
         </div>
         <div className='right-links'>
-          <MagnetLink>
-            <a href='/about' className='lg-link'>About</a>
-          </MagnetLink>
+          <Suspense >
+            <MagnetLink>
+              <a href='/about' className='lg-link'>About</a>
+            </MagnetLink>
+          </Suspense>
           <br />
-          <MagnetLink>
-            <a href='/contact' className='lg-link'>Contact</a>
-          </MagnetLink>
+          <Suspense >
+            <MagnetLink>
+              <a href='/contact' className='lg-link'>Contact</a>
+            </MagnetLink>
+          </Suspense>
         </div>
       </div>
       <div id="navbar-container" className={`navbar-container ${isOpen ? 'open' : ''}`}>
         {isLargeScreen && (
-          <MagnetLink>
-            <motion.button
-              className={`toggle-button ${buttonOpacity ? 'visible' : ''}`}
-              onClick={toggleNavbar}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: buttonScale, opacity: buttonOpacity }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <FontAwesomeIcon
-                icon={faEllipsis}
-                className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
-              />
-            </motion.button>
-          </MagnetLink>
+          <Suspense >
+            <MagnetLink>
+              <motion.button
+                className={`toggle-button ${buttonOpacity ? 'visible' : ''}`}
+                onClick={toggleNavbar}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: buttonScale, opacity: buttonOpacity }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <FontAwesomeIcon
+                  icon={faEllipsis}
+                  className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
+                />
+              </motion.button>
+            </MagnetLink>
+          </Suspense>
         )}
         {!isLargeScreen && (
           <button className={`toggle-button `} onClick={toggleNavbar}>
@@ -110,29 +118,39 @@ function NavbarComp({ backgroundColor, hoverColor }) {
           <div className='list'>
             <p className='navigation'>Navigation</p>
             <hr className="horizontal-line" />
-            <MagnetLink>
-              <a href='/' className='link'>Jonathan Weber</a>
-            </MagnetLink>
+            <Suspense >
+              <MagnetLink>
+                <a href='/' className='link'>Jonathan Weber</a>
+              </MagnetLink>
+            </Suspense>
             <br />
-            <MagnetLink>
-              <a href='/about' className='link'>About</a>
-            </MagnetLink>
+            <Suspense >
+              <MagnetLink>
+                <a href='/about' className='link'>About</a>
+              </MagnetLink>
+            </Suspense>
             <br />
-            <MagnetLink>
-              <a href='/contact' className='link'>Contact</a>
-            </MagnetLink>
+            <Suspense >
+              <MagnetLink>
+                <a href='/contact' className='link'>Contact</a>
+              </MagnetLink>
+            </Suspense>
           </div>
           <div className='nav-foot'>
-            <MagnetLink>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faGithub} className='foot-link' />
-              </a>
-            </MagnetLink>
-            <MagnetLink>
-              <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faLinkedin} className='foot-link' />
-              </a>
-            </MagnetLink>
+            <Suspense >
+              <MagnetLink>
+                <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faGithub} className='foot-link' />
+                </a>
+              </MagnetLink>
+            </Suspense>
+            <Suspense >
+              <MagnetLink>
+                <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faLinkedin} className='foot-link' />
+                </a>
+              </MagnetLink>
+            </Suspense>
           </div>
         </div>
       </div>
@@ -140,4 +158,4 @@ function NavbarComp({ backgroundColor, hoverColor }) {
   );
 }
 
-export default NavbarComp;
+export default memo(NavbarComp);

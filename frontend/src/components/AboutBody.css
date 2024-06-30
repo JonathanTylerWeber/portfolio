@@ -5,6 +5,10 @@
   z-index: 1;
 }
 
+.about-container {
+  margin-bottom: 5em;
+}
+
 .about-content {
   padding-top: 3em;
   padding-bottom: 5em;
@@ -21,13 +25,30 @@
 
 .about-blurb,
 .about-me {
-  font-size: calc(1.5vw + .3em);
+  font-size: calc(1.5vw + .2em);
   color: white;
   font-family: "Kanit", sans-serif;
+  font-weight: 250;
+  line-height: 1.5em;
+
 }
 
-.about-blurb {
-  margin-bottom: 5em;
+.blurb-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.img2-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.img2 {
+  width: calc(1.5vw + 25em);
 }
 
 .resume-container {
@@ -82,8 +103,18 @@
 }
 
 @media (max-width: 991px) {
+
+  .video-container {
+    margin-top: 5em;
+  }
+
   .video {
     height: 25em;
+  }
+
+  .img2 {
+    width: 20em;
+    margin-top: 2em;
   }
 }
 
@@ -91,6 +122,23 @@
   .circle-about {
     border-radius: 0 0 75% 75%;
     height: 500%;
+  }
+
+  .about-name {
+    margin-bottom: .5em;
+  }
+
+  .about-container {
+    margin-bottom: 4em;
+  }
+
+  .img2 {
+    width: 15em;
+    margin-top: 2em;
+  }
+
+  .video-container {
+    margin-top: 5em;
   }
 
   .video {
@@ -105,6 +153,10 @@
 }
 
 @media (max-width: 480px) {
+
+  .about-container {
+    margin-bottom: 0em;
+  }
 
   .about-name {
     font-size: 4em;

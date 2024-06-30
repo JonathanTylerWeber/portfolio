@@ -9,6 +9,7 @@ const MagnetLink = lazy(() => import("./MagnetLink"));
 const FadeInOnScroll = lazy(() => import("./FadeInOnScroll"));
 
 import musicVideo from '../assets/music-video.mp4'
+import portfolio2 from '../assets/portfolio2.jpg'
 
 const AboutBody = () => {
 
@@ -32,8 +33,8 @@ const AboutBody = () => {
                 <h1 className="about-name">About Me</h1>
               </FadeInOnScroll>
             </Suspense>
-            <Row>
-              <Col lg={6} >
+            <Row className="about-container">
+              <Col lg={6} className="blurb-container">
                 <Suspense>
                   <FadeInOnScroll threshold={.05}>
                     <p className="about-blurb">
@@ -43,11 +44,15 @@ const AboutBody = () => {
                 </Suspense>
               </Col>
               <Col lg={6} >
-                <Suspense>
-                  <FadeInOnScroll threshold={.05}>
-                    <img alt='picture of jonathan' />
-                  </FadeInOnScroll>
-                </Suspense>
+                <div className="img2-container">
+                  <Suspense>
+                    <FadeInOnScroll threshold={.05} >
+
+                      <img src={portfolio2} alt='picture of jonathan' className="img2" />
+
+                    </FadeInOnScroll>
+                  </Suspense>
+                </div>
               </Col>
             </Row>
 

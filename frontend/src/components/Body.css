@@ -42,6 +42,7 @@ p {
 
 .blurb {
   font-size: 1.75em;
+  font-weight: 300;
 }
 
 .about-link-container {
@@ -91,5 +92,12 @@ p {
     font-weight: 500;
     margin-top: 2.5em;
     margin-bottom: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .blurb {
+    font-size: 1.25em;
   }
 }

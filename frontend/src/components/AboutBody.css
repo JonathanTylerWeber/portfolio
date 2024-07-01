@@ -163,6 +163,10 @@
     padding-top: 2em;
   }
 
+  .about-container {
+    margin-bottom: 0;
+  }
+
   .about-name {
     font-size: 4em;
     margin-top: 1em;
@@ -173,7 +177,7 @@
   }
 
   .resume-container {
-    margin-bottom: 4em;
+    margin-bottom: 5em;
   }
 
   .resume {

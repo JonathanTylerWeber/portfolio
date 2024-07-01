@@ -25,7 +25,7 @@ const AboutBody = () => {
 
   return (
     <>
-      <div className="body-container" ref={container}>
+      <div className="about-body-container" ref={container}>
         <div className="about-content">
           <Container>
             <Suspense>

@@ -1,8 +1,9 @@
-.body-container {
+.about-body-container {
   width: 100%;
   position: relative;
   background-color: #222831;
   z-index: 1;
+  padding-top: 10em;
 }
 
 .about-container {
@@ -104,6 +105,10 @@
 
 @media (max-width: 991px) {
 
+  .about-body-container {
+    padding-top: 5em;
+  }
+
   .video-container {
     margin-top: 5em;
   }
@@ -154,8 +159,8 @@
 
 @media (max-width: 480px) {
 
-  .about-container {
-    margin-bottom: 0em;
+  .about-body-container {
+    padding-top: 2em;
   }
 
   .about-name {

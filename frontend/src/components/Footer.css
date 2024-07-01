@@ -39,6 +39,11 @@
   margin-right: 1em;
 }
 
+.foot-img {
+  width: 5em;
+  border-radius: 50%;
+}
+
 .open-work {
   font-size: calc(1.5vw + 5em);
   font-weight: 500;

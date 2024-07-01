@@ -3,7 +3,10 @@ import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useScroll, useTransform } from 'framer-motion';
+import { Link } from "react-router-dom";
 import './Footer.css';
+
+import footImg from '../assets/profileCircle.png'
 
 const MagnetLink = lazy(() => import('./MagnetLink'));
 
@@ -40,14 +43,14 @@ const Footer = () => {
         <Container className='foot-container'>
           <div className='foot-title'>
             <div className='img-container'>
-              <img alt='' />
+              <img alt='foot-img' className='foot-img' src={footImg} />
             </div>
             <p className='open-work'>Open for work</p>
           </div>
           <a href="mailto:jonathantweber@gmail.com" className='email'>jonathantweber@gmail.com</a>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense >
             <MagnetLink>
-              <a href='/contact' className='contact-link'>Contact</a>
+              <Link to='/contact' className='contact-link'>Contact</Link>
             </MagnetLink>
           </Suspense>
         </Container>
@@ -56,7 +59,7 @@ const Footer = () => {
             <p className='time'>Local Time: {chinaTime} CST</p>
           </div>
           <div className='foot-right'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense >
               <MagnetLink>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
                   <FontAwesomeIcon icon={faGithub} />

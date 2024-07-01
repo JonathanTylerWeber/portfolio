@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo, lazy, Suspense } from 'react';
+import { Link } from "react-router-dom";
 import { useScroll, motion, } from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
@@ -69,20 +70,20 @@ function NavbarComp({ backgroundColor, hoverColor }) {
         <div className='left-link'>
           <Suspense >
             <MagnetLink>
-              <a href='/' className='lg-link'>Jonathan Weber</a>
+              <Link to='/' className='lg-link'>Jonathan Weber</Link>
             </MagnetLink>
           </Suspense>
         </div>
         <div className='right-links'>
           <Suspense >
             <MagnetLink>
-              <a href='/about' className='lg-link'>About</a>
+              <Link to='/about' className='lg-link'>About</Link>
             </MagnetLink>
           </Suspense>
           <br />
           <Suspense >
             <MagnetLink>
-              <a href='/contact' className='lg-link'>Contact</a>
+              <Link to='/contact' className='lg-link'>Contact</Link>
             </MagnetLink>
           </Suspense>
         </div>
@@ -120,19 +121,19 @@ function NavbarComp({ backgroundColor, hoverColor }) {
             <hr className="horizontal-line" />
             <Suspense >
               <MagnetLink>
-                <a href='/' className='link'>Jonathan Weber</a>
+                <Link to='/' className='link'>Jonathan Weber</Link>
               </MagnetLink>
             </Suspense>
             <br />
             <Suspense >
               <MagnetLink>
-                <a href='/about' className='link'>About</a>
+                <Link to='/about' className='link'>About</Link>
               </MagnetLink>
             </Suspense>
             <br />
             <Suspense >
               <MagnetLink>
-                <a href='/contact' className='link'>Contact</a>
+                <Link to='/contact' className='link'>Contact</Link>
               </MagnetLink>
             </Suspense>
           </div>

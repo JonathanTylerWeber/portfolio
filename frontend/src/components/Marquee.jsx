@@ -28,16 +28,18 @@ function Marquee() {
   }, []);
 
   const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
-    } else if (xPercent > 0) {
-      xPercent = -100;
+    if (slider.current) {
+      if (xPercent < -100) {
+        xPercent = 0;
+      } else if (xPercent > 0) {
+        xPercent = -100;
+      }
+      gsap.set(firstText.current, { xPercent: xPercent });
+      gsap.set(secondText.current, { xPercent: xPercent });
+      gsap.set(thirdText.current, { xPercent: xPercent });
+      requestAnimationFrame(animate);
+      xPercent += 0.1 * direction;
     }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent });
-    gsap.set(thirdText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
   };
 
   return (

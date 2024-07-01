@@ -6,7 +6,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const MagnetLink = lazy(() => import('./MagnetLink'));
 
-const Project = ({ alt, projName, projDesc, tech, video }) => {
+const Project = ({ alt, projName, projDesc, tech, video, projLink, gitLink }) => {
 
   return (
     <div className="proj-container">
@@ -15,11 +15,13 @@ const Project = ({ alt, projName, projDesc, tech, video }) => {
         <p className='proj-name'>{projName}</p>
         <p className='proj-desc'>{projDesc} </p>
         <p className='tech'>{tech} </p>
+
+        <p className='disclaimer'>(The site is deployed on render, please allow 15-30s for the page to load and to signup/login)</p>
         <span className='proj-links'>
 
           <Suspense>
             <MagnetLink>
-              <a href="#">
+              <a href={projLink} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon className="proj-link" icon={faLink} />
               </a>
             </MagnetLink>
@@ -27,7 +29,7 @@ const Project = ({ alt, projName, projDesc, tech, video }) => {
 
           <Suspense>
             <MagnetLink>
-              <a href="#">
+              <a href={gitLink} target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon className="proj-link" icon={faGithub} />
               </a>
             </MagnetLink>

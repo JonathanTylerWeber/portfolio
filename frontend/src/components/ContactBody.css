@@ -1,8 +1,7 @@
 .contact-body {
   background-color: #222831;
-  height: 160vh;
-  padding-top: 3em;
-  /* padding-bottom: em; */
+  height: 180vh;
+  padding-top: 12em;
 }
 
 .contact-title {
@@ -21,6 +20,7 @@
   }
 
   .contact-body {
-    height: 120vh;
+    height: 130vh;
+    padding-top: 4em;
   }
 }

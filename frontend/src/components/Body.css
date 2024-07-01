@@ -7,7 +7,7 @@
 
 .content {
   background-color: #222831;
-  padding-top: 12em;
+  padding-top: 10em;
   padding-bottom: 5em;
   position: relative;
 }
@@ -97,6 +97,11 @@ p {
 
 
 @media (max-width: 480px) {
+
+  .content {
+    padding-top: 5em;
+  }
+
   .blurb {
     font-size: 1.25em;
   }

@@ -1,23 +1,20 @@
-import { memo, lazy, Suspense } from 'react'
+import { memo } from 'react'
 
-const NavbarComp = lazy(() => import('../components/NavbarComp'));
-const AboutBody = lazy(() => import('../components/AboutBody'));
-const Footer = lazy(() => import('../components/Footer'));
+import NavbarComp from '../components/NavbarComp';
+import AboutBody from '../components/AboutBody';
+import Footer from '../components/Footer';
+
+import ScrollToTop from '../components/ScrollTop';
 
 const About = () => {
+
+  ScrollToTop();
+
   return (
     <>
-      <Suspense>
-        <NavbarComp backgroundColor={'#222831'} hoverColor={'#8bced2'} />
-      </Suspense>
-
-      <Suspense>
-        <AboutBody />
-      </Suspense>
-
-      <Suspense>
-        <Footer />
-      </Suspense>
+      <NavbarComp backgroundColor={'#222831'} hoverColor={'#8bced2'} />
+      <AboutBody />
+      <Footer />
     </>
   )
 }

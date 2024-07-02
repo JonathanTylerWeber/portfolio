@@ -49,7 +49,7 @@ function Body() {
             </Row>
             <Suspense fallback={null}>
               <FadeInOnScroll threshold={0.05}>
-                <p className="recent">Recent Projects</p>
+                <p id="recent" className="recent">Recent Projects</p>
               </FadeInOnScroll>
               <FadeInOnScroll threshold={0.05}>
                 <Project

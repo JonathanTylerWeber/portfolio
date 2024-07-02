@@ -64,13 +64,21 @@ function NavbarComp({ backgroundColor, hoverColor }) {
   const buttonOpacity = isLargeScreen && scrollPosition > window.innerHeight ? 1 : (!isLargeScreen ? 1 : 0);
   const buttonScale = isLargeScreen && scrollPosition > window.innerHeight ? 1 : (!isLargeScreen ? 1 : 0);
 
+  const scrollToProjects = () => {
+    const projectsElement = document.getElementById('recent');
+    if (projectsElement) {
+      projectsElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className='nav-lg' style={{ backgroundColor: backgroundColor, '--hover-color': hoverColor }}>
         <div className='left-link'>
           <Suspense >
             <MagnetLink>
-              <Link to='/' className='lg-link'>Jonathan Weber</Link>
+              <Link to='/' className='lg-link' onClick={location.pathname === '/' ? scrollToProjects : undefined} >Jonathan Weber</Link>
             </MagnetLink>
           </Suspense>
         </div>
@@ -121,7 +129,7 @@ function NavbarComp({ backgroundColor, hoverColor }) {
             <hr className="horizontal-line" />
             <Suspense >
               <MagnetLink>
-                <Link to='/' className='link'>Jonathan Weber</Link>
+                <Link to='/' className='link' onClick={location.pathname === '/' ? scrollToProjects : undefined}>Jonathan Weber</Link>
               </MagnetLink>
             </Suspense>
             <br />

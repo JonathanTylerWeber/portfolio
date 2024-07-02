@@ -71,6 +71,9 @@
   height: 5em;
   margin: 2em;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toggle-button.visible {

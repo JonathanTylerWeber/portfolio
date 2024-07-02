@@ -14,13 +14,27 @@
   height: 100vh;
   margin-top: 8em;
   padding-right: 8em;
-  transform: translateY(0);
-  transition: transform 0.1s;
 }
 
 .img1 {
   width: 45em;
   z-index: 3000;
+}
+
+@media (max-width: 991px) {
+  .img1-container {
+    margin-top: 1em;
+    /* Adjust as needed */
+    padding-right: 5em;
+    /* Adjust as needed */
+    transform: none;
+    /* Disable transform for mobile */
+  }
+
+  .img1 {
+    width: 35em;
+    /* Adjust image size for mobile */
+  }
 }
 
 .title-container {
@@ -87,11 +101,19 @@
 
 @media (max-width: 480px) {
   .img1-container {
-    padding-right: 6em;
+    padding-right: 5em;
+    margin-top: 1em;
+  }
+
+  .img1 {
+    width: 35em;
   }
 
   .title {
     font-size: 1.5em;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
 }

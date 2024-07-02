@@ -13,7 +13,7 @@ import portfolio2 from '../assets/portfolio2.jpg'
 
 const AboutBody = () => {
 
-  const resumeUrl = 'https://docs.google.com/document/d/1gcY15Gp0LkJKRnDAGYcn8hFg87OrcA7yVgZgSTvw7vM/edit?usp=sharing'
+  const resumeUrl = 'https://docs.google.com/document/d/1FdGl1zHjkR-HkZEZqROrZZ6rKJrNylbvb7j1Tk-y6HU/edit?usp=sharing'
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({

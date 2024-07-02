@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
 const Mailjet = require('node-mailjet');
 
 const mailjet = Mailjet.connect(
@@ -13,8 +14,9 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.use(cors());
-
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.post('/send-email', (req, res) => {
   const { email, name, subject, text } = req.body;
@@ -47,6 +49,10 @@ app.post('/send-email', (req, res) => {
     .catch((err) => {
       res.status(500).json({ message: 'Error sending email', error: err });
     });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {

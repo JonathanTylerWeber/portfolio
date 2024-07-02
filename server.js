@@ -25,7 +25,7 @@ app.post('/send-email', (req, res) => {
       Messages: [
         {
           From: {
-            Email: email,
+            Email: 'jonathantweber@gmail.com',
             Name: name,
           },
           To: [
@@ -34,7 +34,7 @@ app.post('/send-email', (req, res) => {
               Name: 'Jonathan Weber',
             },
           ],
-          Subject: subject,
+          Subject: `${subject} - email from: ${email}`,
           TextPart: text,
         },
       ],

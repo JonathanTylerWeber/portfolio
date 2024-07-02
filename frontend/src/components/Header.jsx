@@ -1,5 +1,6 @@
 import React, { memo, lazy, Suspense, useState, useEffect } from 'react';
 import "./Header.css";
+import useIsMobile from '../hooks/useIsMobile';
 
 import img1 from '../assets/portfolio1.png'
 
@@ -8,6 +9,7 @@ const Marquee = lazy(() => import('../components/Marquee'));
 function Header() {
 
   const [scrollY, setScrollY] = useState(0);
+  const isMobile = useIsMobile();
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -33,7 +35,9 @@ function Header() {
         <div className="title-container">
           <p className="title">
             Junior Full Stack Developer
-            <span className="secondary-title">Located in Chengdu, China</span>
+            {!isMobile && (
+              <span className="secondary-title">Located in Chengdu, China</span>
+            )}
           </p>
         </div>
         <Suspense >

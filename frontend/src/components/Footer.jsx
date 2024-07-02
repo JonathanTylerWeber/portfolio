@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 import './Footer.css';
 
 import footImg from '../assets/profileCircle.png'
+import useIsMobile from '../hooks/useIsMobile';
 
 const MagnetLink = lazy(() => import('./MagnetLink'));
 
 const Footer = () => {
   const githubLink = 'https://github.com/JonathanTylerWeber';
   const linkedInLink = 'https://www.linkedin.com/in/jonathantweber/';
+  const isMobile = useIsMobile();
 
   const [chinaTime, setChinaTime] = useState('');
 
@@ -49,9 +51,13 @@ const Footer = () => {
           </div>
           <a href="mailto:jonathantweber@gmail.com" className='email'>jonathantweber@gmail.com</a>
           <Suspense >
-            <MagnetLink>
+            {isMobile ? (
               <Link to='/contact' className='contact-link'>Contact</Link>
-            </MagnetLink>
+            ) : (
+              <MagnetLink>
+                <Link to='/contact' className='contact-link'>Contact</Link>
+              </MagnetLink>
+            )}
           </Suspense>
         </Container>
         <div className='foot'>
@@ -60,16 +66,29 @@ const Footer = () => {
           </div>
           <div className='foot-right'>
             <Suspense >
-              <MagnetLink>
-                <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
-                  <FontAwesomeIcon icon={faGithub} />
-                </a>
-              </MagnetLink>
-              <MagnetLink>
-                <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </a>
-              </MagnetLink>
+              {isMobile ? (
+                <>
+                  <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
+                    <FontAwesomeIcon icon={faGithub} />
+                  </a>
+                  <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
+                    <FontAwesomeIcon icon={faLinkedin} />
+                  </a>
+                </>
+              ) : (
+                <>
+                  <MagnetLink>
+                    <a href={githubLink} target="_blank" rel="noopener noreferrer" className='footer-link github'>
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                  </MagnetLink>
+                  <MagnetLink>
+                    <a href={linkedInLink} target="_blank" rel="noopener noreferrer" className='footer-link'>
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </MagnetLink>
+                </>
+              )}
             </Suspense>
           </div>
         </div>

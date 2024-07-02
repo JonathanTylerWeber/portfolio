@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import './NavbarComp.css';
+import useIsMobile from '../hooks/useIsMobile';
 
 const MagnetLink = lazy(() => import('./MagnetLink'));
 
@@ -14,6 +15,7 @@ function NavbarComp({ backgroundColor, hoverColor }) {
   const { scrollY } = useScroll();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 992);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const updateScrollPosition = () => {
@@ -77,29 +79,41 @@ function NavbarComp({ backgroundColor, hoverColor }) {
       <div className='nav-lg' style={{ backgroundColor: backgroundColor, '--hover-color': hoverColor }}>
         <div className='left-link'>
           <Suspense >
-            <MagnetLink>
+            {isMobile ? (
               <Link to='/' className='lg-link' onClick={location.pathname === '/' ? scrollToProjects : undefined} >Jonathan Weber</Link>
-            </MagnetLink>
+            ) : (
+              <MagnetLink>
+                <Link to='/' className='lg-link' onClick={location.pathname === '/' ? scrollToProjects : undefined} >Jonathan Weber</Link>
+              </MagnetLink>
+            )}
           </Suspense>
         </div>
         <div className='right-links'>
           <Suspense >
-            <MagnetLink>
+            {isMobile ? (
               <Link to='/about' className='lg-link'>About</Link>
-            </MagnetLink>
+            ) : (
+              <MagnetLink>
+                <Link to='/about' className='lg-link'>About</Link>
+              </MagnetLink>
+            )}
           </Suspense>
           <br />
           <Suspense >
-            <MagnetLink>
+            {isMobile ? (
               <Link to='/contact' className='lg-link'>Contact</Link>
-            </MagnetLink>
+            ) : (
+              <MagnetLink>
+                <Link to='/contact' className='lg-link'>Contact</Link>
+              </MagnetLink>
+            )}
           </Suspense>
         </div>
       </div>
       <div id="navbar-container" className={`navbar-container ${isOpen ? 'open' : ''}`}>
         {isLargeScreen && (
           <Suspense >
-            <MagnetLink>
+            {isMobile ? (
               <motion.button
                 className={`toggle-button ${buttonOpacity ? 'visible' : ''}`}
                 onClick={toggleNavbar}
@@ -112,7 +126,22 @@ function NavbarComp({ backgroundColor, hoverColor }) {
                   className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
                 />
               </motion.button>
-            </MagnetLink>
+            ) : (
+              <MagnetLink>
+                <motion.button
+                  className={`toggle-button ${buttonOpacity ? 'visible' : ''}`}
+                  onClick={toggleNavbar}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: buttonScale, opacity: buttonOpacity }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <FontAwesomeIcon
+                    icon={faEllipsis}
+                    className={`icon ${isOpen ? 'rotate-left' : 'rotate-right'}`}
+                  />
+                </motion.button>
+              </MagnetLink>
+            )}
           </Suspense>
         )}
         {!isLargeScreen && (
@@ -128,37 +157,61 @@ function NavbarComp({ backgroundColor, hoverColor }) {
             <p className='navigation'>Navigation</p>
             <hr className="horizontal-line" />
             <Suspense >
-              <MagnetLink>
+              {isMobile ? (
                 <Link to='/' className='link' onClick={location.pathname === '/' ? scrollToProjects : undefined}>Jonathan Weber</Link>
-              </MagnetLink>
+              ) : (
+                <MagnetLink>
+                  <Link to='/' className='link' onClick={location.pathname === '/' ? scrollToProjects : undefined}>Jonathan Weber</Link>
+                </MagnetLink>
+              )}
             </Suspense>
             <br />
             <Suspense >
-              <MagnetLink>
+              {isMobile ? (
                 <Link to='/about' className='link'>About</Link>
-              </MagnetLink>
+              ) : (
+                <MagnetLink>
+                  <Link to='/about' className='link'>About</Link>
+                </MagnetLink>
+              )}
             </Suspense>
             <br />
             <Suspense >
-              <MagnetLink>
+              {isMobile ? (
                 <Link to='/contact' className='link'>Contact</Link>
-              </MagnetLink>
+              ) : (
+                <MagnetLink>
+                  <Link to='/contact' className='link'>Contact</Link>
+                </MagnetLink>
+              )}
             </Suspense>
           </div>
           <div className='nav-foot'>
             <Suspense >
-              <MagnetLink>
+              {isMobile ? (
                 <a href={githubLink} target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faGithub} className='foot-link' />
                 </a>
-              </MagnetLink>
+              ) : (
+                <MagnetLink>
+                  <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} className='foot-link' />
+                  </a>
+                </MagnetLink>
+              )}
             </Suspense>
             <Suspense >
-              <MagnetLink>
+              {isMobile ? (
                 <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faLinkedin} className='foot-link' />
                 </a>
-              </MagnetLink>
+              ) : (
+                <MagnetLink>
+                  <a href={linkedInLink} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className='foot-link' />
+                  </a>
+                </MagnetLink>
+              )}
             </Suspense>
           </div>
         </div>

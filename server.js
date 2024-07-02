@@ -16,6 +16,7 @@ const port = process.env.PORT || 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
+// Serve static files from the 'dist' directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.post('/send-email', (req, res) => {
@@ -51,7 +52,9 @@ app.post('/send-email', (req, res) => {
     });
 });
 
+// Handle client-side routing by serving index.html for all requests
 app.get('*', (req, res) => {
+  console.log('Serving index.html for:', req.url);
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 

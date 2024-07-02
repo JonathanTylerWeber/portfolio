@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './EmailForm.css';
 
-import {
-  motion
-} from 'framer-motion';
+import { motion } from 'framer-motion';
+import { FaSpinner } from 'react-icons/fa';
 
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL || "http://localhost:5001";
 
@@ -14,9 +13,11 @@ const EmailForm = () => {
   const [subject, setSubject] = useState('');
   const [text, setText] = useState('');
   const [status, setStatus] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(`${BASE_URL}/send-email`, {
         email,
@@ -28,6 +29,7 @@ const EmailForm = () => {
     } catch (error) {
       setStatus('Error sending email');
     }
+    setIsLoading(false);
   };
 
   return (
@@ -96,15 +98,16 @@ const EmailForm = () => {
           <motion.button
             className='btn'
             type="submit"
-            whileTap={{ scale: 0.9 }}
-            whileHover={{
+            whileTap={{ scale: isLoading ? 1 : 0.9 }}
+            whileHover={isLoading ? {} : {
               scale: 1.1,
               backgroundColor: '#fff',
               color: '#222831'
             }}
+            disabled={isLoading} // Disable button when loading
             transition={{ bounceDamping: 10, bounceStiffness: 600 }}
           >
-            Send Email
+            {isLoading ? <FaSpinner className="spinner" /> : 'Send Email'}
           </motion.button>
         </div>
         <p className={`status ${status.includes('successfully') ? 'success' : 'error'}`}>

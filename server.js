@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
-const path = require('path');
 const Mailjet = require('node-mailjet');
 
 const mailjet = Mailjet.connect(
@@ -14,10 +13,8 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.use(cors());
-app.use(bodyParser.json());
 
-// Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(bodyParser.json());
 
 app.post('/send-email', (req, res) => {
   const { email, name, subject, text } = req.body;
@@ -50,12 +47,6 @@ app.post('/send-email', (req, res) => {
     .catch((err) => {
       res.status(500).json({ message: 'Error sending email', error: err });
     });
-});
-
-// Handle client-side routing by serving index.html for all requests
-app.get('*', (req, res) => {
-  console.log('Serving index.html for:', req.url);
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {

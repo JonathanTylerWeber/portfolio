@@ -37,6 +37,14 @@
   }
 }
 
+@media (min-height: 1200px) {
+
+  .img1 {
+    width: 45%;
+    /* Adjust image size for mobile */
+  }
+}
+
 .title-container {
   position: absolute;
   top: 40%;
